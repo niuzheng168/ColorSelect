@@ -8,16 +8,24 @@
         <script src="Demo.js"></script>
     </head>
     <body>
+
+        <div id="timebar" class="HighLighttText">
+            <span>Time</span>
+            <span id="timeCount" class="Normal">60</span>
+            <span id="timeAction"></span>
+        </div>
+
+        <div id="scroebar" class="HighLighttText">
+            <span>Score</span>
+            <span id="score">0</span>
+            <span id="scoreAction"></span>
+        </div>
+
         <div class="lv2" id="box" style="width: 500px; height: 500px;">
-            <!--<span id="span_0_0" style="background-color: red" onclick="Judge">RED</span>
-                <span id="span_0_1" style="background-color: green" onclick="Judge">GREEN</span>
-                <span id="span_1_0" style="background-color: blue" onclick="Judge">BLUE</span>
-                <span id="span_1_1" style="background-color: yellow" onclick="Judge">YELLOW</span>-->
-            
-            <span id="span_0_0"  onclick="Judge(this)"></span>
-            <span id="span_0_1"  onclick="Judge(this)"></span>
-            <span id="span_1_0"  onclick="Judge(this)"></span>
-            <span id="span_1_1"  onclick="Judge(this)"></span>
+            <span id="span_0_0" onclick=" Judge(this) "></span>
+            <span id="span_0_1" onclick=" Judge(this) "></span>
+            <span id="span_1_0" onclick=" Judge(this) "></span>
+            <span id="span_1_1" onclick=" Judge(this) "></span>
         </div>
     </body>
 </html>

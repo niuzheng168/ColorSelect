@@ -27,7 +27,6 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    
     font-size: 20px;
     color: black;
     text-align: center
@@ -55,4 +54,34 @@
     font-size: 20px;
     color: black;
     text-align: center
+}
+
+#timebar {
+    top: 5%;
+}
+
+#scroebar {
+    top: 10%;
+}
+
+.HighLighttText {
+    display: inline-block;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    position: absolute;
+}
+
+#timeCount {
+    font-size: 25px;
+}
+
+#timeCount.Normal {
+    color: lightskyblue;
+}
+
+#score {
+    font-size: 25px;
+    color: lightgreen;
 }
