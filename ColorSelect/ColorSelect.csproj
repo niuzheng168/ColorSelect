@@ -20,8 +20,6 @@
     <Content Include="app.css" />
     <Content Include="Demo.js" />
     <Content Include="index.html" />
-    <Content Include="libs.min.js" />
-    <Content Include="main.min.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
