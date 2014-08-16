@@ -1,0 +1,56 @@
+﻿body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #F06060;
+    color: #fff;
+    font: 12px/1.5 '微软雅黑'
+}
+
+#box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background-color: #ddd;
+    border-radius: 10px;
+    padding: 10px
+}
+
+#box span {
+    display: block;
+    float: left;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 5px solid #ddd;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    
+    font-size: 20px;
+    color: black;
+    text-align: center
+}
+
+#box.lv2 span {
+    width: 50%;
+    height: 50%
+}
+
+#box.lv3 span {
+    width: 33.33%;
+    height: 33.33%
+}
+
+#box p.InnerText {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-size: 20px;
+    color: black;
+    text-align: center
+}
