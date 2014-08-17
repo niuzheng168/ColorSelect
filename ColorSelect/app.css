@@ -81,6 +81,10 @@
     color: lightskyblue;
 }
 
+#timeCount.Danger {
+    color: red;
+}
+
 #score {
     font-size: 25px;
     color: lightgreen;

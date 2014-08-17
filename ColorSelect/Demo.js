@@ -18,6 +18,12 @@ var DismatchSpanID = -1;
 
 var CurLvl = 1;
 
+var CurtimeCount = new Number(60);
+
+var timer = setInterval("OnTimeCountingDown()", 1000);
+
+var curScore = new Number(0);
+
 function GenerateLvlMap(lvl) {
     var countPerRow = LvlMapColumn[lvl];
     var spanCount = countPerRow * countPerRow;
@@ -56,8 +62,30 @@ function Judge(eventSource) {
     var col = new Number(numbers[1]);
     var globleId = row * countPerRow + col;
     if (globleId == DismatchSpanID) {
-        GenerateLvlMap(CurLvl);
+        OnRightColorClick();
+    } else {
+        OnWrongColorClick();
     }
+}
+
+var combo = new Number(0);
+function OnRightColorClick() {
+    combo++;
+    if (combo > 10) {
+        combo = 10;
+    }
+    curScore += combo;
+
+    SetScoreCountSpanTextWithAction("+" + combo);
+    GenerateLvlMap(CurLvl);
+}
+
+function OnWrongColorClick() {
+    CurtimeCount -= 5;
+    if (CurtimeCount < 0) {
+        CurtimeCount = 0;
+    }
+    SetTimeCountSpanTextWithAction("-5");
 }
 
 function ShuffleColorArray() {
@@ -75,6 +103,57 @@ function ShuffleColorArray() {
 
     return tmpColors;
 }
+
+function OnTimeCountingDown() {
+    CurtimeCount = CurtimeCount - 1;
+    SetTimeCountSpanText();
+}
+
+function SetTimeCountSpanText() {
+    var timeCountSpan = document.getElementById("timeCount");
+    timeCountSpan.textContent = CurtimeCount;
+    if (CurtimeCount < 10 && CurtimeCount > 0) {
+        timeCountSpan.className = "Danger";
+    }
+    else if (CurtimeCount == 0) {
+        document.getElementById("box").style.display = "none";
+        clearTimeout(timer);
+    }
+}
+
+var TimeActionSpanDisapearTimer;
+
+function SetTimeCountSpanTextWithAction(actionString) {
+    SetTimeCountSpanText();
+    var timeActionSpan = document.getElementById("timeAction");
+    timeActionSpan.textContent = actionString;
+
+    TimeActionSpanDisapearTimer = setTimeout(DisapearTimeActionTextInOneSec, 1000);
+}
+
+function DisapearTimeActionTextInOneSec() {
+    var timeActionSpan = document.getElementById("timeAction");
+    timeActionSpan.textContent = "";
+    clearTimeout(TimeActionSpanDisapearTimer);
+}
+
+var ScoreActionSpanDisapearTimer;
+
+function SetScoreCountSpanTextWithAction(actionString) {
+    var scoreSpan = document.getElementById("score");
+    scoreSpan.textContent = curScore;
+    var scoreAction = document.getElementById("scoreAction");
+    scoreAction.textContent = actionString;
+
+    ScoreActionSpanDisapearTimer = setTimeout(DisapearScoreActionTextInOneSec, 300);
+}
+
+function DisapearScoreActionTextInOneSec() {
+    var scoreAction = document.getElementById("scoreAction");
+    scoreAction.textContent = "";
+    clearTimeout(ScoreActionSpanDisapearTimer);
+}
+
 
 window.onload = function () {
     GenerateLvlMap(CurLvl);
